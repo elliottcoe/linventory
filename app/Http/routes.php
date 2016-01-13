@@ -12,7 +12,9 @@
 */
 
 Route::get('/','main@index');
-Route::get('/view/{id}','Data@GetAll');
+Route::get('/','main@index');
+Route::get('/view/{id?}','view@viewcomputer');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -24,6 +26,3 @@ Route::get('/view/{id}','Data@GetAll');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});

@@ -9,8 +9,9 @@ use App\Http\Controllers\Controller;
 
 class main extends Controller
 {
-    public function index(){
-         $computers = Computer::all();
-        return view('index')->with('computers',$computers);
+    public function index()
+    {
+        $computers = Computer::all();
+        return view('main')->with('computers', $computers);
     }
 }
