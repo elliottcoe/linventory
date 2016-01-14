@@ -27,7 +27,13 @@
         <label for="stag">Serial:</label>
         <br>
         <input name="stag" type="text" value="{{$computer[0]['servicetag']}}" disabled>
+        <br>
+        <br>
+        <input type="hidden" name="id" value="{{$computer[0]['id']}}">
+        <input type="submit" value="submit">
         {!! Form::close() !!}
+        <br>
+        <a href="/"><--Back</a>
     </div>
 </div>
 <!-- /.row -->

@@ -14,7 +14,7 @@
 Route::get('/','main@index');
 Route::get('/','main@index');
 Route::get('/view/{id?}','view@viewcomputer');
-
+Route::post('update','main@update');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
