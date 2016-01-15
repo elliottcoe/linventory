@@ -15,6 +15,12 @@ Route::get('/','main@index');
 Route::get('/','main@index');
 Route::get('/view/{id?}','view@viewcomputer');
 Route::post('update','main@update');
+
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/login','Auth\AuthController@getLogin');
+    Route::post('/login','Auth\AuthController@postLogin');
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
