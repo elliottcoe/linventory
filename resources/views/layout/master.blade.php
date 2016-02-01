@@ -71,7 +71,7 @@
     <script src="{{URL::asset('js/plugins/morris/morris-data.js')}}"></script>
     <!-- Html Table Search -->
     <script src="{{URL::asset('js/filterForTable.js')}}"></script>
-    <script src="https://inlinemanual.com/embed/player.fa6b42acf29542c6732426af922a0d87.js"></script>
+
     <script type="text/javascript">
     $('table').filterForTable();
     </script>

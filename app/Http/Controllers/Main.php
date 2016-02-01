@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 
 use App\Computer;
 use App\Http\Controllers\Controller;
+use Auth;
 use Request;
 
 class main extends Controller
 {
+    public function _construct(){
+        $this->middleware('status');
+    }
     public function index()
     {
-        $computers = Computer::all();
-        return view('main')->with('computers', $computers);
+
+            $name = Auth::user()->name;
+            $computers = Computer::all();
+            return view('main')->with('computers', $computers)->with('name',$name);
     }
     public function Update()
     {

@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/','main@index');
-Route::get('/','main@index');
-Route::get('/view/{id?}','view@viewcomputer');
-Route::post('update','main@update');
+
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@postLogin', ['middleware' => 'status']);
 
 
-Route::group(['middleware' => ['web']], function () {
-    Route::get('/login','Auth\AuthController@getLogin');
-    Route::post('/login','Auth\AuthController@postLogin');
-});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,4 +27,19 @@ Route::group(['middleware' => ['web']], function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+
+Route::group(['middleware' => 'web','status'], function () {
+    Route::auth();
+    Route::get('/', [
+
+        'middleware' => 'auth',
+        'uses' => 'main@index'
+    ]);
+
+    Route::get('/view/{id?}', 'view@viewcomputer',['middleware'=>'status']);
+    Route::post('update', 'main@update');
+});
+
+
+
 

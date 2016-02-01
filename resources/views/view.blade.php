@@ -31,8 +31,15 @@
         <br>
         <input type="hidden" name="id" value="{{$computer[0]['id']}}">
         <input type="submit" value="submit">
-        {!! Form::close() !!}
         <br>
+        <br>
+        {!! Form::close() !!}
+        @if(empty($computer[0]['updated_at']))
+
+        @else
+        <p>Updated: <?php echo \Carbon\Carbon::createFromTimeStamp(strtotime($computer[0]['updated_at']))->diffForHumans() ?></p>
+        <br>
+        @endif
         <a href="/"><--Back</a>
     </div>
 </div>
